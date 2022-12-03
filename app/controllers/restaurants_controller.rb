@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+    
 
     def index
         render json: Restaurant.all, status: :ok
@@ -8,7 +9,7 @@ class RestaurantsController < ApplicationController
         restaurant = Restaurant.find_by(id:params[:id])
         if restaurant
             render json:
-            restaurant
+            restaurant, only:[:id, :name, :address], include: :pizzas
         else
             render json: {error: "Restaurant not found"}, status: :not_found
         end
