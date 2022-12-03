@@ -7,7 +7,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     def create
         restaurant_pizza = RestaurantPizza.create!(restaurant_pizza_params)
-        render json: restaurant_pizza.pizza, status: :created
+        render json: restaurant_pizza, status: :created
     end
 
     def show
@@ -17,16 +17,16 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         else
             render json: {error: "Restaurant Pizza not found"}, status: :not_found
         end
+    end
 
 
-        private
+    private
 
-        def restaurant_pizza_params
-            params.permit(:pizza_id, :price, :restaurant_id)
-        end
+    def restaurant_pizza_params
+        params.permit(:pizza_id, :price, :restaurant_id)
+    end
 
-        def render_unprocessable_entity_response(exception)
-            render json: {errors: exception.record.errors.full_messages }, status: :unprocessable_entity
-        end
+    def render_unprocessable_entity_response(exception)
+        render json: {errors: exception.record.errors.full_messages }, status: :unprocessable_entity
     end
 end
