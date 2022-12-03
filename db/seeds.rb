@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+r1 = Restaurant.create(name: "r1", address: "24, NY")
+r2 = Restaurant.create(name: "r2", address: "12, OH")
+r3 = Restaurant.create(name: "r3", address: "30, MY")
+
+p1 = Pizza.create(name: "p1")
+p2 = Pizza.create(name: "p2")
+p3 = Pizza.create(name: "p3")
+
+rp1 = RestaurantPizza.create(pizza_id: p1.id, restaurant_id: r1.id, price: 10)
+rp2 = RestaurantPizza.create(pizza_id: p2.id, restaurant_id: r1.id, price: 15)
+rp3 = RestaurantPizza.create(pizza_id: p3.id, restaurant_id: r2.id, price: 12)
+rp4 = RestaurantPizza.create(pizza_id: p1.id, restaurant_id: r3.id, price: 11)
