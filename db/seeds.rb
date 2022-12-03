@@ -14,9 +14,9 @@ r1 = Restaurant.create(name: "r1", address: "24, NY")
 r2 = Restaurant.create(name: "r2", address: "12, OH")
 r3 = Restaurant.create(name: "r3", address: "30, MY")
 
-p1 = Pizza.create(name: "p1")
-p2 = Pizza.create(name: "p2")
-p3 = Pizza.create(name: "p3")
+p1 = Pizza.create(name: "p1", ingredients: "Dough, Tomato Sauce, Cheese")
+p2 = Pizza.create(name: "p2", "ingredients": "Dough, Tomato Sauce, Cheese, Pepperoni")
+p3 = Pizza.create(name: "p3", "ingredients": "Dough, Tomato Sauce, Cheese, Pineapple")
 
 rp1 = RestaurantPizza.create(pizza_id: p1.id, restaurant_id: r1.id, price: 10)
 rp2 = RestaurantPizza.create(pizza_id: p2.id, restaurant_id: r1.id, price: 15)
